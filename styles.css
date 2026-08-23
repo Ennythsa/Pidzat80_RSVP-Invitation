@@ -819,12 +819,237 @@ border-style: solid;
     pointer-events: none;
 }
 
-.icon {
-    front-size: 32px;
-    font-weight: bold;
-    letter-spacing: 32px;
-    positon: relative; 
+/* ========================================
+   AMBIENT BACKGROUND LIGHTS
+======================================== */
+
+#ambientLights {
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: -10;
+
 }
+
+
+/* ========================================
+   LIGHT BEAMS
+======================================== */
+
+.lightBeam {
+    position: absolute;
+
+    width: 160vw;
+    height: 25vh;
+
+    filter: blur(35px);
+
+    opacity: 0.45;
+
+    transform-origin: center;
+
+    pointer-events: none;
+}
+
+
+/* TEAL BEAM */
+
+.beam1 {
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(47, 150, 137, 0.05) 10%,
+        rgba(75, 180, 165, 0.65) 50%,
+        rgba(47, 150, 137, 0.05) 90%,
+        transparent 100%
+    );
+
+    left: -50vw;
+    top: 55vh;
+
+    transform: rotate(-18deg);
+
+    animation: beamMove1 18s ease-in-out infinite alternate;
+}
+
+
+/* WARM BEAM */
+
+.beam2 {
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 100, 20, 0.05) 15%,
+        rgba(255, 120, 40, 0.55) 50%,
+        rgba(255, 50, 20, 0.05) 85%,
+        transparent 100%
+    );
+
+    left: -30vw;
+    top: 15vh;
+
+    transform: rotate(20deg);
+
+    animation: beamMove2 23s ease-in-out infinite alternate;
+}
+
+
+/* ========================================
+   GLOWING LIGHT SPOTS
+======================================== */
+
+.lightGlow {
+    position: absolute;
+
+    width: 35vw;
+    height: 35vw;
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    pointer-events: none;
+}
+
+
+/* RED */
+
+.glow1 {
+    background: rgba(150, 20, 10, 0.35);
+
+    top: -10vw;
+    right: -5vw;
+
+    animation: glowMove1 15s ease-in-out infinite alternate;
+}
+
+
+/* TEAL */
+
+.glow2 {
+    background: rgba(20, 150, 135, 0.7);
+
+    bottom: -10vw;
+    left: -10vw;
+
+    animation: glowMove2 20s ease-in-out infinite alternate;
+}
+
+
+/* ORANGE */
+
+.glow3 {
+    background: rgba(255, 100, 20, 0.2);
+
+    top: 35%;
+    right: 20%;
+
+    animation: glowMove3 17s ease-in-out infinite alternate;
+}
+
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+
+@keyframes beamMove1 {
+
+    0% {
+        transform:
+            translate(-30vw, 10vh)
+            rotate(-20deg);
+    }
+
+    25% {
+        transform:
+            translate(-5vw, -5vh)
+            rotate(-15deg);
+    }
+
+    50% {
+        transform:
+            translate(20vw, 5vh)
+            rotate(-10deg);
+    }
+
+    75% {
+        transform:
+            translate(5vw, 15vh)
+            rotate(-18deg);
+    }
+
+    100% {
+        transform:
+            translate(-20vw, 5vh)
+            rotate(-23deg);
+    }
+
+}
+
+@keyframes beamMove2 {
+
+    0% {
+        transform:
+            translate(20vw, -10vh)
+            rotate(20deg);
+    }
+
+    50% {
+        transform:
+            translate(-10vw, 10vh)
+            rotate(25deg);
+    }
+
+    100% {
+        transform:
+            translate(15vw, 20vh)
+            rotate(18deg);
+    }
+}
+
+
+@keyframes glowMove1 {
+
+    0% {
+        transform: translate(-5vw, 5vh) scale(1);
+    }
+
+    100% {
+        transform: translate(-15vw, 15vh) scale(1.3);
+    }
+}
+
+
+@keyframes glowMove2 {
+
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(15vw, -10vh) scale(1.4);
+    }
+}
+
+
+@keyframes glowMove3 {
+
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(-10vw, 15vh) scale(1.2);
+    }
+}
+
 
 .confetti {
     position: fixed;
