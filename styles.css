@@ -121,10 +121,11 @@ h1 {
     
 }
 
+
 #attireInfo {
     position: relative;
     z-index: 1;
-    width: 70%;
+    width: 100%;
     text-align: center;
     background: rgba(255, 255, 255, 0.20);
     backdrop-filter: blur(10px) saturate(180%);
@@ -132,7 +133,9 @@ h1 {
     border: 1px solid rgba(255, 255, 255, 0.96);
     border-radius: 32px;
     box-shadow: 10px 8px 32px rgba(0, 0, 0, 0.25);
+    padding-bottom: 50px;
 }
+
 
 #attireInfo p {
     font-family: "Montserrat", sans-serif;
@@ -218,7 +221,11 @@ h1 {
     letter-spacing: 5px;
     font-size: 7rem;
     line-height: 80px;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+    text-shadow: 10px 4px 10px black;
 }
+
 
 
 .outfitPic {
