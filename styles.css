@@ -147,7 +147,7 @@ h1 {
     }
 
     #attireHeader h1 {
-        font-size: 10rem;
+        font-size: 5rem;
     }
 
     #colorScheme {
@@ -228,7 +228,6 @@ h1 {
 
 .attire {
     font-family: "Jersey 15", sans-serif;
-    text-shadow: 15px 4px 13.5px rgba(0,0,0,0.5);
     z-index: 1;
 }
 
