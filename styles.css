@@ -848,41 +848,40 @@ border-style: solid;
 
 .lightBeam {
     position: absolute;
-    width: 150vw;   /* Keep it long to cross the screen */
-    height: 12vh;   /* Narrower height for a focused beam */
-    filter: blur(15px); /* Reduced blur for sharper edges */
-    opacity: 0.8; 
-    mix-blend-mode: screen; /* CRITICAL: Makes it behave like light */
+    width: 150vw;
+    height: 5vh;           /* Much thinner to look like a laser/spotlight */
+    filter: blur(2px);     /* Drastically reduced blur for sharp edges */
+    opacity: 0.9;
+    mix-blend-mode: screen;
     pointer-events: none;
     z-index: -5;
 }
-
+/* TEAL BEAM */
 /* TEAL BEAM */
 
 .beam1 {
-    /* Gradient from top to bottom (0deg) across the narrow height */
     background: linear-gradient(
         0deg,
         transparent 0%,
-        rgba(47, 150, 137, 0.1) 20%,
-        rgba(120, 255, 230, 0.9) 50%, /* Bright, intense center core */
-        rgba(47, 150, 137, 0.1) 80%,
+        rgba(47, 150, 137, 0) 30%,
+        rgba(47, 150, 137, 0.8) 45%, /* Sharp edge starts here */
+        rgba(255, 255, 255, 0.9) 50%, /* White-hot core */
+        rgba(47, 150, 137, 0.8) 55%, /* Sharp edge ends here */
+        rgba(47, 150, 137, 0) 70%,
         transparent 100%
     );
 
-    /* Anchor to bottom right corner */
     bottom: -10vh;
     right: -20vw;
     
-    /* Remove the old top/left positioning */
     top: auto;
     left: auto;
 
-    /* Anchor the pivot point to the right edge */
     transform-origin: right center;
 
     animation: sweepTeal 12s ease-in-out infinite alternate;
 }
+
 /* WARM BEAM */
 
 .beam2 {
