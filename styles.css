@@ -848,41 +848,41 @@ border-style: solid;
 
 .lightBeam {
     position: absolute;
-
-    width: 160vw;
-    height: 25vh;
-
-    filter: blur(35px);
-
-    opacity: 0.45;
-
-    transform-origin: center;
-
+    width: 150vw;   /* Keep it long to cross the screen */
+    height: 12vh;   /* Narrower height for a focused beam */
+    filter: blur(15px); /* Reduced blur for sharper edges */
+    opacity: 0.8; 
+    mix-blend-mode: screen; /* CRITICAL: Makes it behave like light */
     pointer-events: none;
+    z-index: -5;
 }
-
 
 /* TEAL BEAM */
 
 .beam1 {
+    /* Gradient from top to bottom (0deg) across the narrow height */
     background: linear-gradient(
-        90deg,
+        0deg,
         transparent 0%,
-        rgba(47, 150, 137, 0.05) 10%,
-        rgba(75, 180, 165, 0.65) 50%,
-        rgba(47, 150, 137, 0.05) 90%,
+        rgba(47, 150, 137, 0.1) 20%,
+        rgba(120, 255, 230, 0.9) 50%, /* Bright, intense center core */
+        rgba(47, 150, 137, 0.1) 80%,
         transparent 100%
     );
 
-    left: -50vw;
-    top: 55vh;
+    /* Anchor to bottom right corner */
+    bottom: -10vh;
+    right: -20vw;
+    
+    /* Remove the old top/left positioning */
+    top: auto;
+    left: auto;
 
-    transform: rotate(-18deg);
+    /* Anchor the pivot point to the right edge */
+    transform-origin: right center;
 
-    animation: beamMove1 18s ease-in-out infinite alternate;
+    animation: sweepTeal 12s ease-in-out infinite alternate;
 }
-
-
 /* WARM BEAM */
 
 .beam2 {
@@ -962,38 +962,19 @@ border-style: solid;
    ANIMATIONS
 ======================================== */
 
-@keyframes beamMove1 {
-
+@keyframes sweepTeal {
     0% {
-        transform:
-            translate(-30vw, 10vh)
-            rotate(-20deg);
+        /* Aiming slightly up */
+        transform: rotate(-15deg) scaleX(1); 
     }
-
-    25% {
-        transform:
-            translate(-5vw, -5vh)
-            rotate(-15deg);
+    40% {
+        /* Sweeping high across the screen */
+        transform: rotate(-45deg) scaleX(1.3); 
     }
-
-    50% {
-        transform:
-            translate(20vw, 5vh)
-            rotate(-10deg);
-    }
-
-    75% {
-        transform:
-            translate(5vw, 15vh)
-            rotate(-18deg);
-    }
-
     100% {
-        transform:
-            translate(-20vw, 5vh)
-            rotate(-23deg);
+        /* Dipping down */
+        transform: rotate(-25deg) scaleX(1.1); 
     }
-
 }
 
 @keyframes beamMove2 {
