@@ -117,7 +117,7 @@ function draw(dataArray) {
 
     // Background
 
-    ctx.fillStyle = '#272626';
+    // ctx.fillStyle = '#272626';
 
     ctx.fillRect(
         0,
@@ -135,19 +135,11 @@ function draw(dataArray) {
         canvas.width / dataArray.length;
 
 
-    for (
-        let i = 0;
-        i < dataArray.length;
-        i++
-    ) {
+    for (let i = 0; i < dataArray.length; i++) {
+        const height = dataArray[i];
 
-        const height =
-            dataArray[i];
-
-
-        ctx.fillStyle =
-            `rgb(255, ${height + 50}, 0)`;
-
+        // Note: rgb(255, height + 50, 0) sets bar color (Red when quiet, Yellow/Orange when loud)
+        ctx.fillStyle = `rgb(255, ${height + 50}, 0)`;
 
         ctx.fillRect(
             x,
@@ -156,11 +148,9 @@ function draw(dataArray) {
             height
         );
 
-
         x += barWidth + 1;
     }
 }
-
 
 
 function addGuest() {
