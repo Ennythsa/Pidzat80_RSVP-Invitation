@@ -924,7 +924,7 @@ border-style: solid;
 /* RED */
 
 .glow1 {
-    background: rgba(150, 20, 10, 0.35);
+    display: none;
 
     top: -10vw;
     right: -5vw;
