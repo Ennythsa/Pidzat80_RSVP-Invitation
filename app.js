@@ -117,7 +117,7 @@ function draw(dataArray) {
 
     // Background
 
-    // ctx.fillStyle = '#272626';
+    ctx.fillStyle = '#272626';
 
     ctx.fillRect(
         0,
