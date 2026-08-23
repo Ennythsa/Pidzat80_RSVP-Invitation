@@ -117,7 +117,7 @@ function draw(dataArray) {
 
     // Background
 
-    // ctx.fillStyle = '#272626';
+    ctx.fillStyle = '#272626';
 
     ctx.fillRect(
         0,
@@ -126,32 +126,41 @@ function draw(dataArray) {
         canvas.height
     );
 
-
-    // Bars
-
-    let x = 0;
-
-    const barWidth =
-        canvas.width / dataArray.length;
+analyser.getByteFrequencyData(dataArray);
 
 
-    for (let i = 0; i < dataArray.length; i++) {
-        const height = dataArray[i];
+// Background
+ctx.fillStyle = '#272626';
 
-        // Note: rgb(255, height + 50, 0) sets bar color (Red when quiet, Yellow/Orange when loud)
-        ctx.fillStyle = `rgb(255, ${height + 50}, 0)`;
+ctx.fillRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+);
 
-        ctx.fillRect(
-            x,
-            canvas.height - height,
-            barWidth,
-            height
-        );
 
-        x += barWidth + 1;
-    }
+// Bars
+let x = 0;
+
+const barWidth =
+    canvas.width / dataArray.length;
+
+for (let i = 0; i < dataArray.length; i++) {
+
+    const height = dataArray[i];
+
+    ctx.fillStyle = `rgb(255, ${height + 50}, 0)`;
+
+    ctx.fillRect(
+        x,
+        canvas.height - height,
+        barWidth,
+        height
+    );
+
+    x += barWidth + 1;
 }
-
 
 function addGuest() {
     const guestList = document.getElementById("guestList");
