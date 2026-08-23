@@ -148,6 +148,7 @@ for (let i = 0; i < dataArray.length; i++) {
 
     x += barWidth + 1;
 }
+}
 
 function addGuest() {
     const guestList = document.getElementById("guestList");
