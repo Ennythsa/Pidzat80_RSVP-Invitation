@@ -797,19 +797,14 @@ border-style: solid;
 
 
 .confetti {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed; /* Keeps it on screen while scrolling */
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9998; /* Puts it over the background */
-  pointer-events: none; /* VERY IMPORTANT: Lets you click the RSVP buttons through the confetti! */
-  overflow: hidden;
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9998;
+    pointer-events: none;
+    overflow: hidden;
 }
-
 
 .confetti-piece {
   position: absolute;
