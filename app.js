@@ -1,4 +1,3 @@
-const fileInput = document.getElementById('audioFile');
 const canvas = document.getElementById('visualizer');
 const ctx = canvas.getContext('2d');
 
@@ -161,6 +160,46 @@ function draw(dataArray) {
         x += barWidth + 1;
     }
 }
+
+
+
+function addGuest() {
+    const guestList = document.getElementById("guestList");
+
+    // Create wrapper
+    const inputGroup = document.createElement("div");
+    inputGroup.classList.add("guest-input-group");
+
+    // Create input
+    const input = document.createElement("input");
+    input.type = "text";
+    
+    input.name = "GuestName[]";
+
+    // Create remove button
+    const removeBtn = document.createElement("button");
+    removeBtn.type = "button";
+    removeBtn.classList.add("remove-btn");
+    removeBtn.textContent = "✕";
+
+    // Remove guest
+    removeBtn.onclick = function () {
+        inputGroup.remove();
+        updateGuestNumbers();
+    };
+
+    // Add input + remove button
+    inputGroup.appendChild(input);
+    inputGroup.appendChild(removeBtn);
+
+    // Add to guest list
+    guestList.appendChild(inputGroup);
+
+    // Update numbering
+    updateGuestNumbers();
+}
+
+
 // UPDATE GUEST PLACEHOLDERS
 
 function updateGuestNumbers() {
