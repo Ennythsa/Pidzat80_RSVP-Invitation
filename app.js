@@ -23,13 +23,6 @@ window.addEventListener('resize', resizeCanvas);
 // Set up Audio Context and Analyser
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-
-document.body.addEventListener('click', function() {
-    if (audioContext.state === 'suspended') {
-        audioContext.resume();
-    }
-}, { once: true }); 
-
 const analyser = audioContext.createAnalyser();
 analyser.fftSize = 256;
 
