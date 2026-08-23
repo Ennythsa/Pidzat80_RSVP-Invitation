@@ -1,0 +1,752 @@
+
+html {
+    background-color: #272626;
+    scroll-behavior: smooth;
+}
+
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+h1 {
+    color: #ffff;
+}
+
+.jersey-15-regular {
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.montserrat-monsterrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+#wrapper {
+    position: relative; 
+    bottom: 0px;
+    top: 0px; 
+    height: 120vw; 
+    overflow: hidden;
+}
+
+#mainbar {
+    display: flex; 
+    flex-direction: column;
+}
+
+#title {
+    font-size: 15vw;
+    line-height: 65%;
+    text-align: center;
+    position: absolute; 
+    top:30vw;
+    bottom: 50%;
+    text-shadow: 12px 4px 13.5px rgba(10, 10, 10, 0.926);
+    z-index: 1;
+    left: 2vw;
+    right: 2vw;
+}
+
+
+#gradientTop {
+    display: flex;
+    position: absolute;
+    width: 50vw;
+    z-index: -1;
+    top: 0;
+    right: 50%;
+
+}
+
+#disco {
+    width: 100vw;
+    display: flex; 
+    position: absolute;
+    z-index: 0;
+    top: 2vw;
+    bottom: 2vw;
+    left: 2vw; 
+    right: 2vw;
+
+}
+
+#gradientBottom {
+    display: flex;
+    position: absolute;
+    width: 70vw;
+    z-index: -2;
+    left: 30%; 
+    top: 30vw;
+
+}
+
+#divider_music {
+    height: 20vw;
+    width: 100vw;
+    position: absolute;
+    z-index: -4;
+    top: 100vw;
+    display: block;
+}
+
+#attire {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#attirebg {
+    width: 100vw;
+    position: absolute;
+    z-index: 0;
+}
+
+#attireHeader {
+    position: relative;
+    z-index: 1;
+    font-size: 3rem;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    
+}
+
+#attireInfo {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.96);
+    border-radius: 32px;
+    box-shadow: 10px 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+#attireInfo p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    margin: 0px;
+}
+
+@media (min-width: 768px) {
+    #attireInfo p {
+        font-size: 6rem;
+    }
+
+    #attireHeader h1 {
+        font-size: 10rem;
+    }
+
+    #colorScheme {
+        font-size: 3rem;
+    }
+}
+
+#colorScheme {
+    text-align: center;
+    font-family: "Jersey 15", sans-serif;
+    font-size: 1rem;
+    text-shadow: 0 0 32px rgba(0, 0, 0, 0.788);
+    letter-spacing: 4px;
+    position: relative;
+    z-index: 2;
+}
+
+.spacing {
+    width: 100vw;
+    height: 20vw;
+    margin-top: 20px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+    min-width: 0;
+}
+
+#attireSection {
+    position: relative;
+}
+
+#backgroundAttire {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    margin-bottom: 5rem;
+}
+
+#backgroundAttire img {
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: 50%;
+}
+
+#outfits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    box-sizing: border-box;
+    gap: 16px;
+    height: auto;
+    width: 80vw;
+    z-index: 1;
+    margin: auto;
+    margin-bottom: 2rem;
+}
+
+#outfitInspoHeader {
+    text-align: center;
+    font-family: "Jersey 15", sans-serif;
+    letter-spacing: 5px;
+    font-size: 7rem;
+    line-height: 80px;
+}
+
+
+.outfitPic {
+  width: 100%;
+  box-sizing: border-box;
+
+}
+
+.attire {
+    font-family: "Jersey 15", sans-serif;
+    text-shadow: 15px 4px 13.5px rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+#details {
+    position: static; 
+}
+
+canvas {
+    position: absolute;
+    z-index: -3;
+    height: 100vw;
+    margin: 0;
+    width: 100vw;
+    display: block;
+}
+
+.glassFilter {
+    background: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(19px) saturate(172%);
+    -webkit-backdrop-filter: blur(19px) saturate(172%);
+    border: 1px solid rgba(255, 255, 255, 0.30);
+    border-radius: 14px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.parentContainerRSVP {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.parentContainerRSVP a {
+    text-decoration: none;
+}
+
+.parentContainerRSVP a:hover {
+    text-decoration: underline;
+    text-decoration-color: gold;
+}
+
+#rsvpButton {
+    width: max-content;
+    height: max-content;
+    padding: 1rem 2.5rem;
+    margin: 1.5rem auto;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+
+
+
+#rsvpButton:hover {
+    /* Scale cleanly without losing alignment */
+    transform: scale(1.5);
+}
+
+
+#rsvpButton p {
+    color: black;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0px;
+    font-family: "Jersey 15", sans-serif;
+}
+
+@media (min-width: 768px) {
+    #rsvpButton p {
+        font-size: 4rem;
+
+    }
+}
+
+p {
+    color: white;
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    p {
+        font-size: 2rem;
+    }
+
+    #outfits {
+        width: 90vw;
+    }
+
+    #outfitInspoHeader {
+        font-size: 10rem;
+    }
+
+    #venueHeader {
+        font-size: 5rem;
+    }
+
+}
+
+#venue {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 2rem;
+}
+
+#venueHeader {
+    font-family: "Jersey 15", sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    position: relative;
+}
+
+#venueBg {
+    width: 100%;
+    box-sizing: border-box;
+    inset: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+#venueBg img {
+    width: 100%;
+    object-fit: cover;
+}
+
+#venueHolder {
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1; 
+    position: relative;
+    margin: auto;
+    padding: auto;
+}
+
+#venueHolder img {
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+}
+
+#venueDetails {
+    font-family: "Montserrat", sans-serif;
+}
+
+/* font-size: clamp(1.2rem, 2vw, 2rem); */
+#venueFlex {
+    display: flex; 
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding-top: 40%;
+    z-index: 3;
+    position: absolute;
+    width: 85%;
+    object-fit: contain;
+    justify-content: center;
+    margin: auto;
+    padding-left: 15%
+
+}
+
+#locationMap {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    height: 42vh;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+@media (min-width: 600px) {
+    #locationMap {
+        height: clamp(76dvh, 90dvh, 100dvh);
+    }
+
+    #venueDetails p {
+        font-size: 10rem;
+    }
+}
+
+#rsvp {
+    margin-top: 70px;
+}
+
+#RSVPformHeader {
+    width: 100%;
+    text-align: center;
+    font-family: "Jersey 15", sans-serif;
+    font-size: clamp(2.5rem, 3.4rem, 5rem);
+}
+
+#rsvpContainer_confirmation {
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.27);
+    border-radius: 32px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    text-align: center;
+
+}
+
+.choices {
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.27);
+    border-radius: 32px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    width: 100%;
+}
+
+#rsvpchoices {
+    display: flex;
+    width: 100%;
+    inset: 0px; 
+    flex-direction: row;
+    justify-content: center;
+    /* Shrinks the gap to 10px on mobile, caps at 50px on desktop */
+    gap: clamp(10px, 4vw, 50px); 
+    margin-top: 50px;
+}
+
+
+
+input[type=radio] {
+    border: 0px;
+    width: 100%;
+    height: 3em;
+}
+
+.choices:has(input[type=radio]:hover) {
+background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.rsvptext {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    /* Min 1.5rem (mobile), preferred 6vw (scales), Max 4rem (desktop) */
+    font-size: clamp(1.5rem, 6vw, 4rem); 
+    margin-top: 30px;
+}
+
+
+#rsvpInformation {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#rsvpDetails {
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.27);
+    border-radius: 32px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    margin-top: 50px;
+}
+
+.rsvpInformation_asked {
+    font-family: "Montserrat", sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.RSVPname {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inputName {
+    margin-left: 20px;
+    width: 50vw;
+    height: stretch;
+    font-size: 1.5rem;
+    margin-right: 20px;
+    border-radius: 12px; 
+    border: none; 
+    padding: 8px 12px; 
+}
+label {
+    font-family: "Montserrat", sans-serif; 
+    margin: 0px;
+    font-weight: 500;
+    color: white;
+
+
+}
+
+#rsvpVerification {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+    object-fit: contain;
+    align-items: center;
+}
+
+.rsvpVerifyText {
+    font-size: 2rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    text-align: center;
+}
+
+
+
+.guest-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+}
+
+.guest-input-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  height: 3rem;
+
+}
+
+.guest-input-group input {
+  width: 100%;
+  height: 3rem;
+  padding: 10px;
+border-style: solid;
+  border-color: white;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+@media (min-width: 600px) {
+    .guest-input-group input {
+        height: 60px;
+    }
+}
+.remove-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+#addGuestBtn {
+  background: #784008;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif; 
+  margin-top: 30px;
+}
+
+#moreGuestsSection {
+    margin-top: 30px;
+    text-align: center;
+    font-family: "Montserrat", sans-serif; 
+}
+
+#rsvpSubmit {
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#rsvpSubmit button {
+    background: white;
+    box-shadow: none;
+    font-size: 2rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    color: #3e8e41;
+    width: max-content;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 20px; 
+    
+}
+
+#rsvpSubmit button:hover {
+    color: white;
+    background-color: #3e8e41; 
+}
+
+#submittedOverlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.6);
+
+    z-index: 9999;
+
+}
+
+
+#submittedOverlay.show {
+
+    display: flex;
+
+}
+
+
+#submittedBox {
+
+    background: white;
+
+    padding: 40px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    
+
+}
+
+
+#submittedBox h1 {
+
+    margin-bottom: 10px;
+    color: black;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+
+}
+
+#submittedBox p {
+    color: black;
+}
+#submittedBox button {
+
+    margin-top: 20px;
+
+    padding: 12px 25px;
+
+    cursor: pointer;
+
+}
+
+#contactGrid p {
+    font-size: 1rem;
+}
+
+#contactGrid h1 {
+    font-size: 1.25rem;
+}
+
+#contactGrid {
+    display: flex; 
+    flex-direction: row;
+    /* Allows boxes to stack on top of each other on tiny mobile screens */
+    flex-wrap: wrap; 
+    justify-content: center;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    background: rgb(63, 63, 63);
+    border: 2px solid black; 
+    border-radius: 20px;
+    gap: 20px;
+    padding: 10px; 
+}
+
+.contactPerson {
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 15px;
+    flex: 1; 
+    min-width: 200px;
+}
+
+#InquiriesBox {
+    background: #5b5b5b;
+    border-radius: 21px;
+    box-shadow: 20px 20px 40px #333333,
+    -20px -20px 40px #252424;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#InquiriesBox p {
+    font-size: clamp( 1.3rem, 2rem, 2.5rem);
+    font-weight: 800;
+}
