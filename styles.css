@@ -136,14 +136,14 @@ h1 {
 
 #attireInfo p {
     font-family: "Montserrat", sans-serif;
-    font-weight: 900;
-    font-size: 3rem;
+    font-weight: 500;
+    font-size: 1rem;
     margin: 0px;
 }
 
 @media (min-width: 768px) {
     #attireInfo p {
-        font-size: 6rem;
+        font-size: 2rem;
     }
 
     #attireHeader h1 {
@@ -238,8 +238,8 @@ h1 {
 
 canvas {
     position: absolute;
-    z-index: -3;
-    height: 100vw;
+    z-index: 1;
+    height: 100vh;
     margin: 0;
     width: 100vw;
     display: block;
@@ -421,6 +421,16 @@ iframe {
 
 #rsvp {
     margin-top: 70px;
+    background: linear-gradient(148deg, #f09800 0%, #f9d596 50%, #ffffff 100%); 
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.30);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    outline-width: 25px;
+    outline-color: white;
+    box-shadow: 16px 4px 53px 11px rgba(255, 255, 255, 0.53);
+    border-radius: 0px;
 }
 
 #RSVPformHeader {
@@ -428,28 +438,24 @@ iframe {
     text-align: center;
     font-family: "Jersey 15", sans-serif;
     font-size: clamp(2.5rem, 3.4rem, 5rem);
+    padding-bottom: 20px;
 }
 
 #rsvpContainer_confirmation {
-    background: rgba(255, 255, 255, 0.13);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.27);
-    border-radius: 32px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
     width: 100%;
     text-align: center;
 
 }
 
 .choices {
-    background: rgba(255, 255, 255, 0.13);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.27);
-    border-radius: 32px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
     width: 100%;
+    padding: 20px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #dea806;
+    border-radius: 20px;
+    background-color: white;
+
 }
 
 #rsvpchoices {
@@ -460,22 +466,41 @@ iframe {
     justify-content: center;
     /* Shrinks the gap to 10px on mobile, caps at 50px on desktop */
     gap: clamp(10px, 4vw, 50px); 
-    margin-top: 50px;
+    
+    
 }
 
+#yes {
+    margin-left: 20px;
+}
 
+#no {
+    margin-right: 20px;
+}
 
+#rsvpchoices h1 {
+    padding-bottom: 20px;
+}
+
+.choices:has(input[type="radio"]:not(:checked)) h1 {
+   color: #d37f0a;
+}
 input[type=radio] {
     border: 0px;
     width: 100%;
     height: 3em;
 }
 
-.choices:has(input[type=radio]:hover) {
-background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+.choices:has(input[type="radio"]:checked) {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
+
+.choices:has(input[type="radio"]:checked) h1 {
+    color: white;
+}
+
 .rsvptext {
     font-family: "Montserrat", sans-serif;
     font-weight: 800;
@@ -492,12 +517,6 @@ background-color: #3e8e41;
 }
 
 #rsvpDetails {
-    background: rgba(255, 255, 255, 0.13);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.27);
-    border-radius: 32px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
     width: 100%;
     margin-top: 50px;
 }
@@ -508,6 +527,8 @@ background-color: #3e8e41;
     font-weight: 800;
     margin-top: 20px;
     margin-left: 20px;
+    
+    color: #d37f0a;
 }
 
 .RSVPname {
@@ -564,7 +585,7 @@ label {
 .guest-input-group {
   display: flex;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 26px;
   height: 3rem;
 
 }
@@ -577,10 +598,12 @@ border-style: solid;
   border-color: white;
   border-radius: 20px;
   margin-bottom: 20px;
+  font-size: 20px;
 }
 @media (min-width: 600px) {
     .guest-input-group input {
         height: 60px;
+        
     }
 }
 .remove-btn {
@@ -595,9 +618,10 @@ border-style: solid;
 #addGuestBtn {
   background: #784008;
   color: white;
-  padding: 10px;
+  padding: 30px;
   border: none;
   border-radius: 8px;
+  font-size: clamp(1.5rem, 2rem, 3rem);
   cursor: pointer;
   font-family: "Montserrat", sans-serif; 
   margin-top: 30px;
@@ -701,11 +725,12 @@ border-style: solid;
 }
 
 #contactGrid p {
-    font-size: 1rem;
+    font-size: 0.5rem;
 }
 
 #contactGrid h1 {
-    font-size: 1.25rem;
+    font-size: clamp(1.5rem, 2rem, 2.5rem);
+    color: #f09800;
 }
 
 #contactGrid {
@@ -716,8 +741,6 @@ border-style: solid;
     justify-content: center;
     text-align: center;
     font-family: "Montserrat", sans-serif;
-    background: rgb(63, 63, 63);
-    border: 2px solid black; 
     border-radius: 20px;
     gap: 20px;
     padding: 10px; 
@@ -729,28 +752,36 @@ border-style: solid;
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    border: 2px solid black;
+    border: 4px solid #f09800;
+    color: black;
     border-radius: 20px;
     padding: 15px;
     flex: 1; 
     min-width: 200px;
+    background: rgba(255, 255, 255, 0.80);
 }
 
 #InquiriesBox {
-    background: #5b5b5b;
-    border-radius: 21px;
-    box-shadow: 20px 20px 40px #333333,
-    -20px -20px 40px #252424;
+    background: rgba(255, 255, 255, 0.66);
+    backdrop-filter: blur(4px) saturate(178%);
+    -webkit-backdrop-filter: blur(4px) saturate(178%);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
     margin-bottom: 40px;
     margin-left: 20px;
     margin-right: 20px;
+    padding: 5px; 
+    border-width: 4px;
+    border-color:#f09800;
+    border-style: solid;
 }
 
 #InquiriesBox p {
-    font-size: clamp( 1.3rem, 2rem, 2.5rem);
+    font-size: clamp( 1.3rem, 1.5rem, 2.5rem);
     font-weight: 800;
+    color: #f09800;
 }
-
 
 #enterOverlay {
     position: fixed;
@@ -789,12 +820,11 @@ border-style: solid;
 }
 
 .icon {
-  font-size: 32px;
-  font-weight: bold;
-  letter-spacing: 32px;
-  position: relative;
+    front-size: 32px;
+    font-weight: bold;
+    letter-spacing: 32px;
+    positon: relative; 
 }
-
 
 .confetti {
     position: fixed;
