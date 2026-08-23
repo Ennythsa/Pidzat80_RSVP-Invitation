@@ -1,16 +1,11 @@
 const fileInput = document.getElementById('audioFile');
 const canvas = document.getElementById('visualizer');
 const ctx = canvas.getContext('2d');
-// ctx is the drawing context and it lets us draw
-// on the canvas using 2d shapes
-// fileInput is the file picker
-// canvas is where the animation will appear
 
-// sets up canvas dimensions
-// why these values? idk we just followed it
-// highk we need it overlaid
-// i placed it on pos absolute and z index -3
 
+// ==============================
+// CANVAS
+// ==============================
 
 function resizeCanvas() {
     canvas.width = window.innerWidth;
@@ -18,100 +13,154 @@ function resizeCanvas() {
 }
 
 resizeCanvas();
+
 window.addEventListener('resize', resizeCanvas);
 
-// Set up Audio Context and Analyser
-const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-const analyser = audioContext.createAnalyser();
-analyser.fftSize = 256;
+// ==============================
+// AUDIO
+// ==============================
 
-const dataArray = new Uint8Array(analyser.frequencyBinCount);
+let audioContext;
+let analyser;
+let source;
 
-// Fetch the MP3 file from your local folder
-fetch('celebration.mp3')
-    .then(response => response.arrayBuffer())
-    .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
-    .then(buffer => {
-        //  Set up the Audio Source
-        const source = audioContext.createBufferSource();
-        source.buffer = buffer;
+const enterOverlay = document.getElementById('enterOverlay');
 
-        source.loop = true;
 
-        source.connect(analyser);
-        analyser.connect(audioContext.destination);
+// ==============================
+// START EVERYTHING
+// ==============================
 
-        source.start();
+enterOverlay.addEventListener('click', async () => {
 
-        //  Canvas Visualization Loop
-        function draw() {
-            requestAnimationFrame(draw);
-            analyser.getByteFrequencyData(dataArray);
+    // Hide overlay
+    enterOverlay.classList.add('hide');
 
-            ctx.fillStyle = '#272626';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            let x = 0;
-            const barWidth = canvas.width / dataArray.length;
+    // Create AudioContext AFTER user click
+    audioContext = new (
+        window.AudioContext ||
+        window.webkitAudioContext
+    )();
 
-            for (let i = 0; i < dataArray.length; i++) {
-                const height = dataArray[i];
-                ctx.fillStyle = `rgb(255, ${height + 50}, 0)`;
-                ctx.fillRect(x, canvas.height - height, barWidth, height);
-                x += barWidth + 1;
-            }
-        }
 
-        draw();
+    // Resume AudioContext
+    if (audioContext.state === 'suspended') {
+        await audioContext.resume();
+    }
+
+
+    // Create analyser
+    analyser = audioContext.createAnalyser();
+
+    analyser.fftSize = 256;
+
+
+    const dataArray =
+        new Uint8Array(analyser.frequencyBinCount);
+
+
+    // Load MP3
+    const response =
+        await fetch('./celebration.mp3');
+
+    const arrayBuffer =
+        await response.arrayBuffer();
+
+
+    const audioBuffer =
+        await audioContext.decodeAudioData(
+            arrayBuffer
+        );
+
+
+    // Create audio source
+    source =
+        audioContext.createBufferSource();
+
+    source.buffer = audioBuffer;
+
+    source.loop = true;
+
+
+    // Connect audio
+    source.connect(analyser);
+
+    analyser.connect(
+        audioContext.destination
+    );
+
+
+    // START MUSIC
+    source.start();
+
+
+    // START VISUALIZER
+    draw(dataArray);
+
+}, { once: true });
+
+
+// ==============================
+// VISUALIZER
+// ==============================
+
+function draw(dataArray) {
+
+    requestAnimationFrame(() => {
+        draw(dataArray);
     });
 
 
-
-// CHECK IF JAVASCRIPT IS LOADING
-
-console.log("RSVP JavaScript is working!");
+    analyser.getByteFrequencyData(dataArray);
 
 
-// ADD GUEST
+    // Background
 
-function addGuest() {
-    const guestList = document.getElementById("guestList");
+    ctx.fillStyle = '#272626';
 
-    // Create wrapper
-    const inputGroup = document.createElement("div");
-    inputGroup.classList.add("guest-input-group");
+    ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
 
-    // Create input
-    const input = document.createElement("input");
-    input.type = "text";
-    
-    input.name = "GuestName[]";
 
-    // Create remove button
-    const removeBtn = document.createElement("button");
-    removeBtn.type = "button";
-    removeBtn.classList.add("remove-btn");
-    removeBtn.textContent = "✕";
+    // Bars
 
-    // Remove guest
-    removeBtn.onclick = function () {
-        inputGroup.remove();
-        updateGuestNumbers();
-    };
+    let x = 0;
 
-    // Add input + remove button
-    inputGroup.appendChild(input);
-    inputGroup.appendChild(removeBtn);
+    const barWidth =
+        canvas.width / dataArray.length;
 
-    // Add to guest list
-    guestList.appendChild(inputGroup);
 
-    // Update numbering
-    updateGuestNumbers();
+    for (
+        let i = 0;
+        i < dataArray.length;
+        i++
+    ) {
+
+        const height =
+            dataArray[i];
+
+
+        ctx.fillStyle =
+            `rgb(255, ${height + 50}, 0)`;
+
+
+        ctx.fillRect(
+            x,
+            canvas.height - height,
+            barWidth,
+            height
+        );
+
+
+        x += barWidth + 1;
+    }
 }
-
-
 // UPDATE GUEST PLACEHOLDERS
 
 function updateGuestNumbers() {
