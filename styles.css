@@ -235,15 +235,17 @@ h1 {
 #details {
     position: static; 
 }
-
 canvas {
     position: absolute;
-    z-index: -3;
-    height: 100vh;
-    margin: 0;
+    top: 80vw;         /* 100vw minus 20vw height puts bottom edge at 100vw */
+    left: 0;
     width: 100vw;
+    height: 20vw;      /* Height allocated for the rising bars */
+    z-index: -3;       
     display: block;
+    pointer-events: none;
 }
+
 
 .glassFilter {
     background: rgba(255, 255, 255, 0.16);
