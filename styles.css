@@ -1117,3 +1117,25 @@ border-style: solid;
   20% { opacity: 1; }
   100% { opacity: 1; transform: translateY(100vh); }
 }
+
+.glitter-title {
+    /* 1. Stack a glitter image ON TOP of your gold gradient */
+    background-image: 
+        url('https://www.transparenttextures.com/patterns/stardust.png'), 
+        linear-gradient(79deg, #ebd197, #dcb240, #e9b62d, #bb9b49);
+    
+    /* 2. Blend the white stardust into the gold */
+    background-blend-mode: overlay;
+    
+    /* 3. Clip the background to the text shape */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* 4. Add the white outline (stroke) */
+    /* Note: I lowered this to 2px, as 3px sometimes swallows the text, but change it back to 3px if you prefer! */
+    -webkit-text-stroke: 2px #ffffff;
+
+    /* 5. Keep your glowing text shadow */
+    text-shadow: 10px 4px 13.5px rgba(255, 181, 40, 0.3);
+}
