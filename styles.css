@@ -1,21 +1,16 @@
 
 html {
-    background-color: #272626;
+    background-color: #272626; /* Background stays ONLY here */
     scroll-behavior: smooth;
 }
 
-html, body {
-    background-color: #272626;
-    scroll-behavior: smooth;
-    
-    /* ADD THESE TO PREVENT HORIZONTAL SCROLLING */
-    overflow-x: hidden;
-    width: 100%;
-    max-width: 100%;
+body {
     margin: 0;
     padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* This kills the annoying gap on the right */
+    /* DO NOT add a background color here, or it will swallow your images! */
 }
-
 
 
 * {
@@ -847,15 +842,13 @@ border-style: solid;
     inset: 0;
 
     width: 100vw;
-    height: 100vh;
+    height: 100dvh; /* Changed to dynamic viewport height for mobile */
 
     overflow: hidden;
-
     pointer-events: none;
-
     z-index: -10;
-
 }
+
 
 
 /* ========================================
