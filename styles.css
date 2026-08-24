@@ -4,6 +4,18 @@ html {
     scroll-behavior: smooth;
 }
 
+html, body {
+    background-color: #272626;
+    scroll-behavior: smooth;
+    
+    /* ADD THESE TO PREVENT HORIZONTAL SCROLLING */
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 
 
 * {
@@ -794,10 +806,9 @@ border-style: solid;
 
 #enterOverlay {
     position: fixed;
-    inset: 0;
+    inset: 0; /* This perfectly pins it to all 4 corners of the screen */
     
-    width: 100vw;
-    height: 100vh;
+    /* REMOVED width and height here */
 
     background: #272626;
 
@@ -806,11 +817,10 @@ border-style: solid;
     align-items: center;
 
     z-index: 99999;
-
     cursor: pointer;
-
     transition: opacity 0.6s ease;
 }
+
 
 #enterText {
     font-family: "Montserrat", sans-serif;
